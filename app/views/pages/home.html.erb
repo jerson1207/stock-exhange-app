@@ -1,0 +1,22 @@
+<% unless signed_in? %>
+  <div class="home">
+    <div class="section-left">
+      <h1 class="section-message">Investment today is a </h1>
+      <h1 class="section-message-2">source of income tomorrow.</h1>
+      <p class="sub-message">The general public can trade shares on the secondary market after a company's initial public offering.</p>
+      <%= link_to new_user_registration_path do %>
+        <button>Sign Up</button>
+      <% end %>
+    </div>
+    
+    <div class="section-right">
+      <%= image_tag "cyberscooty-graph.svg", height: 300 %>
+    </div>
+  </div>
+<% else %>
+  <% if current_user.admin? %>
+    <%= render 'home/admin' %>
+  <% else %>
+    <%= render 'home/user' %>
+  <% end %>
+<% end %>

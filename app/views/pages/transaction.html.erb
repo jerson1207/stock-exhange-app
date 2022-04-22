@@ -1,0 +1,60 @@
+<div class="container--tabs">
+<h1>TRANSACTION HISTORY</h1>
+	<section class="row">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab-1">Owned</a></li>
+			<li class=""><a href="#tab-2">Trade</a></li>
+			<li class=""><a href="#tab-3">Cash</a></li>
+		</ul>
+		<div class="tab-content">
+			<div id="tab-1" class="tab-pane active"> 
+				<span class="glyphicon glyphicon-leaf glyphicon--home--feature two columns text-center "></span>
+        <span class="col-md-10">
+					<h3>Transaction History of Stock Buy</h3>
+        </span>
+	
+        <% @transaction_stock_buys.each do  |transaction| %>
+          <div class="card">
+            <div class="label">
+              <h1><%= transaction.name %> (<%= transaction.ticker %>) was purchase Worth <span>$<%= transaction.last_price %> on <%= transaction.created_at.strftime("%m/%d/%Y") %> at <%= transaction.created_at.strftime("%I:%M%p") %>. </h1>
+              
+            </div>
+            
+              <%= link_to transaction_stock_buy_path(transaction), method: :delete, data: {confirm: "Delete #{transaction.name} from history"}, class: "btn" do %>
+                <button>delete</button>
+              <% end %>
+               
+          </div>
+        <% end %>
+			</div> 
+
+			<div id="tab-2" class="tab-pane">
+				<span class="glyphicon glyphicon-fire glyphicon--home--feature two columns text-center"></span>
+				<span class="col-md-10">
+					<h3>Transaction History of Stock Trade</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				</span>
+				<% @transaction_stock_sells.each do  |sell| %>
+          <div class="card">
+            <div class="label">
+              <h1><%= sell.name %> (<%= sell.ticker %>) was trade worth <span>$<%= sell.last_price %> on <%= sell.created_at.strftime("%m/%d/%Y") %> at <%= sell.created_at.strftime("%I:%M%p") %>. </h1>
+            </div>
+            
+              <%= link_to transaction_stock_sell_path(sell), method: :delete, data: {confirm: "Delete #{sell.name} from history"}, class: "btn" do %>
+                <button>delete</button>
+              <% end %>
+               
+          </div>
+        <% end %>
+			</div>
+
+			<div id="tab-3" class="tab-pane">
+				<span class="glyphicon glyphicon-tint glyphicon--home--feature two columns text-center"></span>
+				<span class="col-md-10">
+					<h3>Feature 3</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				</span>
+			</div>
+		</div>
+	</section>
+</div>

@@ -1,0 +1,17 @@
+
+<div class="header">
+  <p>My Portfolio</p>
+</div>
+<div class="main-my_portfolio">
+  <% @stock.each do |stock| %>
+    <div class="card">
+      <div class="label">
+        <h1><%= stock.name %> (<%= stock.ticker %>)</h1>
+        <h2>Current Worth: <span>$<%= stock.last_price %></span></h2>
+      </div>
+      <%= link_to user_stock_path(stock), method: :delete, data: {confirm: "Trade this stock for $#{stock.last_price}"}, class: "btn" do %>
+        <button>Sell</button>
+      <% end %>   
+    </div>
+  <% end %>
+</div>

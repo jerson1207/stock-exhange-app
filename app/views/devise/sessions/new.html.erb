@@ -1,0 +1,39 @@
+<div class="home">
+  <div class="section-left">
+    <h1 class="section-message">Investment today is a </h1>
+    <h1 class="section-message-2">source of income tomorrow.</h1>
+    <p class="sub-message">The general public can trade shares on the secondary market after a company's initial public offering.</p>
+  </div>
+    
+  <div class="section-right">
+    <div class="login">
+      <h2 class="section-header">Log in</h2> 
+      <div class="form">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="field">
+            <% f.label :email %><br />
+            <%= f.email_field :email,placeholder: "Email", autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="field">
+            <% f.label :password %><br />
+            <%= f.password_field :password, placeholder: "Password", autocomplete: "current-password" %>
+          </div>
+
+          <div class="field actions">
+            <%= f.submit "Log in", class: "btn" %>
+          </div>
+        <% end %>
+
+        <div class="direct_to">
+          <p><%= render "devise/shared/links_password" %></p>
+          <p>Already have an account? <span><%= render "devise/shared/links" %> </span></p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>

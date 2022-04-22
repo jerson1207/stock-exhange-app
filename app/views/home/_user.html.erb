@@ -1,0 +1,17 @@
+<div class="home-sined_in">
+  <div class="main">
+    <div class="seo">     
+      <%= form_tag search_stock_path, remote: true, method: :get do %>
+        <%= text_field_tag :stock, params[:stock], placeholder: 'Ticker symbol', class: 'searchbar' %>
+        <%= button_tag type: :submit, class: "btn-search" do %>
+          <%= "search" %>
+        <% end %>
+      <% end %> 
+    </div>    
+    <div id="results"></div>
+  </div>
+
+  <div class="sidebar">
+    <%= render 'pages/sidebar' %>
+  </div>
+</div>

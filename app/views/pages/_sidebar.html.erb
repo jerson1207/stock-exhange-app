@@ -1,0 +1,34 @@
+<h2 >Cash Deposit </h2>
+<h1><span class="dollar">$</span> <span class="amount"><%= '%.2f' % @user.cash %></span></h1>
+
+<div class="buttons">
+  <button id="btn-deposit">DEPOSIT</button>
+  <div id="myDeposit" class="modal">
+    <div class="modal-content">  
+      <span class="close-deposit">&times;</span>
+      <h3 class="modal-header">Deposit</h3>
+      <%= form_tag deposit_path, method: :get do %>       
+        <%= number_field_tag :number,  class: "input_field" %>       
+        
+        <%= button_tag type: :submit, class: "btn" do %>
+          <%= 'Deposit' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <button id="btn-withdraw">Withdraw</button>
+  <div id="myWithdraw" class="modal">
+    <div class="modal-content">  
+      <span class="close-withdraw">&times;</span>
+      <h3 class="modal-header ">Withdraw</h3>
+      <%= form_tag withdraw_path, method: :get   do %>       
+        <%= number_field_tag :number %>       
+        
+        <%= button_tag type: :submit, class: "btn" do %>
+          <%= 'withdraw' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>StockExchangePrototype</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <%= render 'layouts/navigation' %>
+      <%= render 'layouts/flash_message' %>
+      <%= yield %>  
+    </div>
+    <%= javascript_pack_tag 'links' %>
+    <%= javascript_pack_tag 'modal' %>
+    <%= javascript_pack_tag 'transaction_tabs' %>
+    <%= javascript_pack_tag 'dropdown' %>   
+
+
+  </body>
+</html>

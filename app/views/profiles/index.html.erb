@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <th>User ID</th>
+    <th>email</th>
+    <th>first name</th>
+    <th>last name</th>
+    <th>Total Cash</th>
+    <th>Role</th>
+    <th>Action</th>
+  </tr>
+    <% @users.each do |u| %>
+  <tr>
+      <td> <%= u.id %> </td>
+      <td> <%= u.email %> </td>
+      <td> <%= u.first_name %> </td>
+      <td> <%= u.last_name %> </td>
+      <td> <%= u.cash %> </td>
+      <td> <%= u.admin %> </td>
+      <td>  <%= link_to 'show', profile_path(u) %>  </td>
+      <td>  <%= link_to 'edit', edit_profile_path(u) %>  </td>
+      <td>  action  </td>
+  </tr>
+    <% end %>  
+</table>
+
+<%= link_to 'create', new_profile_path %>

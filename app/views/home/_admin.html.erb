@@ -1,0 +1,28 @@
+<div class="transaction">
+  <h1>Sold Stock</h1>
+  <div class="sell-stock">
+    <% @atsb.each do |a| %>
+      <div class="card1">     
+        <h3>ticker: <%= ticker(a.stock_buy_id) %> </h3>
+        <h3>worth: <%= price(a.stock_buy_id) %></h3>
+        <h3>user: <%= a.user_id %> </h3>
+        <h3>date: <%= a.created_at %></h3> 
+      </div>
+      <hr>
+    <% end %>
+  </div>
+
+  <div class="trade-stock">
+  <h1>Trade Stock</h1>
+    <% @atss.each do |a| %>
+      <div class="card1">     
+        <h3>ticker: <%= ticker(a.stock_sell_id) %> </h3>
+        <h3>worth: <%= price(a.stock_sell_id) %></h3>
+        <h3>user: <%= a.user_id %> </h3>
+        <h3>date: <%= a.created_at %></h3> 
+      </div>
+      <hr>
+    <% end %>
+  </div>
+
+</div>

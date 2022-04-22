@@ -1,0 +1,21 @@
+
+<% if @stock %>
+  <div class="result-blk">
+    <h1>Symbol: <%= @stock.ticker%></h1>
+    <h1>Company: <%= @stock.name%></h1>
+    <h1>Last Price: <%= @stock.last_price %></h1>
+    
+    <% if current_user.available?(@stock.ticker) %>
+      <%= link_to user_stocks_path(user: current_user, ticker: @stock.ticker), method: :post, data: {confirm: "Purchase stock for $#{@stock.last_price}"}, class: "btn" do %>
+        <button>BUY</button>
+      <% end %>
+    <% else %>
+        <h3 class="label">✔ <span>Owned</span></h3>
+    <% end %>
+
+  </div>
+<% else %>
+  <% if alert %>
+    <h1><%= alert %></h1>
+  <% end %>
+<% end %>
